@@ -30,14 +30,6 @@
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fribidi\charset\fribidi-char-sets-cap-rtl.h" />
-    <ClInclude Include="fribidi\charset\fribidi-char-sets-cp1255.h" />
-    <ClInclude Include="fribidi\charset\fribidi-char-sets-cp1256.h" />
-    <ClInclude Include="fribidi\charset\fribidi-char-sets-iso8859-6.h" />
-    <ClInclude Include="fribidi\charset\fribidi-char-sets-iso8859-8.h" />
-    <ClInclude Include="fribidi\charset\fribidi-char-sets-list.h" />
-    <ClInclude Include="fribidi\charset\fribidi-char-sets-utf8.h" />
-    <ClInclude Include="fribidi\charset\fribidi-char-sets.h" />
     <ClInclude Include="fribidi\lib\bidi-types.h" />
     <ClInclude Include="fribidi\lib\common.h" />
     <ClInclude Include="fribidi\lib\debug.h" />
@@ -59,32 +51,35 @@
     <ClInclude Include="fribidi\lib\fribidi-unicode.h" />
     <ClInclude Include="fribidi\lib\fribidi.h" />
     <ClInclude Include="fribidi\lib\joining-types.h" />
-    <ClInclude Include="fribidi\lib\mem.h" />
     <ClInclude Include="fribidi\lib\run.h" />
+    <ClInclude Include="fribidi\lib\fribidi-brackets.h" />
+    <ClInclude Include="fribidi\lib\fribidi-char-sets-cap-rtl.h" />
+    <ClInclude Include="fribidi\lib\fribidi-char-sets-cp1255.h" />
+    <ClInclude Include="fribidi\lib\fribidi-char-sets-cp1256.h" />
+    <ClInclude Include="fribidi\lib\fribidi-char-sets-iso8859-6.h" />
+    <ClInclude Include="fribidi\lib\fribidi-char-sets-iso8859-8.h" />
+    <ClInclude Include="fribidi\lib\fribidi-char-sets-list.h" />
+    <ClInclude Include="fribidi\lib\fribidi-char-sets-utf8.h" />
+    <ClInclude Include="fribidi\lib\fribidi-char-sets.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fribidi\charset\fribidi-char-sets-cap-rtl.c" />
-    <ClCompile Include="fribidi\charset\fribidi-char-sets-cp1255.c" />
-    <ClCompile Include="fribidi\charset\fribidi-char-sets-cp1256.c" />
-    <ClCompile Include="fribidi\charset\fribidi-char-sets-iso8859-6.c" />
-    <ClCompile Include="fribidi\charset\fribidi-char-sets-iso8859-8.c" />
-    <ClCompile Include="fribidi\charset\fribidi-char-sets-utf8.c" />
-    <ClCompile Include="fribidi\charset\fribidi-char-sets.c" />
     <ClCompile Include="fribidi\lib\fribidi-arabic.c" />
     <ClCompile Include="fribidi\lib\fribidi-bidi-types.c" />
     <ClCompile Include="fribidi\lib\fribidi-bidi.c" />
     <ClCompile Include="fribidi\lib\fribidi-deprecated.c" />
     <ClCompile Include="fribidi\lib\fribidi-joining-types.c" />
     <ClCompile Include="fribidi\lib\fribidi-joining.c" />
-    <ClCompile Include="fribidi\lib\fribidi-mem.c" />
     <ClCompile Include="fribidi\lib\fribidi-mirroring.c" />
     <ClCompile Include="fribidi\lib\fribidi-run.c" />
     <ClCompile Include="fribidi\lib\fribidi-shape.c" />
     <ClCompile Include="fribidi\lib\fribidi.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="libfribidi.def">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClCompile Include="fribidi\lib\fribidi-brackets.c" />
+    <ClCompile Include="fribidi\lib\fribidi-char-sets-cap-rtl.c" />
+    <ClCompile Include="fribidi\lib\fribidi-char-sets-cp1255.c" />
+    <ClCompile Include="fribidi\lib\fribidi-char-sets-cp1256.c" />
+    <ClCompile Include="fribidi\lib\fribidi-char-sets-iso8859-6.c" />
+    <ClCompile Include="fribidi\lib\fribidi-char-sets-iso8859-8.c" />
+    <ClCompile Include="fribidi\lib\fribidi-char-sets-utf8.c" />
+    <ClCompile Include="fribidi\lib\fribidi-char-sets.c" />
   </ItemGroup>
 </Project>

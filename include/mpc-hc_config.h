@@ -39,6 +39,8 @@
 
 #define USE_STATIC_UNRAR 1
 
+#define USE_LIBASS 1
+
 #ifdef MPCHC_LITE
 #define USE_STATIC_MEDIAINFO 0
 #else
