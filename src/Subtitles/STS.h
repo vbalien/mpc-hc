@@ -28,6 +28,7 @@
 #include "../../include/mpc-hc_config.h"
 #if USE_LIBASS
 #include "SSASub.h"
+#include "SubRendererSettings.h"
 #endif
 #include "OpenTypeLangTags.h"
 
@@ -67,7 +68,6 @@ public:
 
 #if USE_LIBASS
     // libass stuff
-    OpenTypeLang::HintStr openTypeLangHint = {0};
     DWORD      SrtResX = 1920;
     DWORD      SrtResY = 1080;
     bool       Kerning = false;
@@ -243,6 +243,10 @@ public:
     bool m_renderUsingLibass;
     OpenTypeLang::HintStr m_openTypeLangHint;
 
+    SubRendererSettings subRendererSettings;
+    void SetSubRenderSettings(SubRendererSettings settings);
+
+
     bool m_assloaded;
     bool m_assfontloaded;
 
@@ -251,6 +255,7 @@ public:
     std::unique_ptr<ASS_Renderer, ASS_RendererDeleter> m_renderer;
     std::unique_ptr<ASS_Track, ASS_TrackDeleter> m_track;
 
+    void ResetASS();
     bool LoadASSFile(Subtitle::SubType subType);
     bool LoadASSTrack(char* data, int size, Subtitle::SubType subType);
     void UnloadASS();
