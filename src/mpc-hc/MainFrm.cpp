@@ -5289,6 +5289,44 @@ HRESULT CMainFrame::RenderCurrentSubtitles(BYTE* pData) {
     return hr;
 }
 
+void CMainFrame::CopyImage(LPCWSTR fn, bool displayed, bool includeSubtitles) {
+    std::vector<BYTE> dib;
+    CString errmsg;
+    HRESULT hr;
+    HGLOBAL hData;
+    if (displayed) {
+        hr = GetDisplayedImage(dib, errmsg);
+    }
+    else {
+        hr = GetCurrentFrame(dib, errmsg);
+        if (includeSubtitles && hr == S_OK) {
+            RenderCurrentSubtitles(dib.data());
+        }
+    }
+
+    if (!OpenClipboard()) {
+        return;
+    }
+    if (!EmptyClipboard()) {
+        return;
+    }
+
+    if (hr == S_OK) {
+        hData = GlobalAlloc(GMEM_MOVEABLE, (long)dib.size());
+        memcpy(GlobalLock(hData), dib.data(), (long)dib.size());
+        GlobalUnlock(hData);
+        SetClipboardData(CF_DIB, hData);
+        CloseClipboard();
+        GlobalFree(hData);
+
+        // SaveDIB(fn, dib.data(), (long)dib.size());
+        m_OSD.DisplayMessage(OSD_TOPLEFT, ResStr(IDS_OSD_IMAGE_SAVED), 3000);
+    }
+    else {
+        m_OSD.DisplayMessage(OSD_TOPLEFT, errmsg, 3000);
+    }
+}
+
 void CMainFrame::SaveImage(LPCWSTR fn, bool displayed, bool includeSubtitles) {
     std::vector<BYTE> dib;
     CString errmsg;
@@ -5773,7 +5811,8 @@ void CMainFrame::OnFileSaveImageAuto()
 
     CString fn;
     fn.Format(_T("%s\\%s"), s.strSnapshotPath.GetString(), MakeSnapshotFileName(FALSE).GetString());
-    SaveImage(fn.GetString(), false, includeSubtitles);
+    CopyImage(fn.GetString(), false, includeSubtitles);
+    // SaveImage(fn.GetString(), false, includeSubtitles);
 }
 
 void CMainFrame::OnUpdateFileSaveImage(CCmdUI* pCmdUI)

@@ -418,6 +418,7 @@ private:
     void SaveDIB(LPCTSTR fn, BYTE* pData, long size);
     CString MakeSnapshotFileName(BOOL thumbnails);
     BOOL IsRendererCompatibleWithSaveImage();
+    void CopyImage(LPCTSTR fn, bool displayed, bool includeSubtitles);
     void SaveImage(LPCTSTR fn, bool displayed, bool includeSubtitles);
     void SaveThumbnails(LPCTSTR fn);
 
